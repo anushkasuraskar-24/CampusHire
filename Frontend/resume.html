@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Resume | CampusHire</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+
+    <!-- 
+        NEW: resume-specific styles (upload zone, file preview card).
+        Doesn't exist yet — built in the NEXT step.
+    -->
+    <link rel="stylesheet" href="css/resume.css">
+</head>
+<body>
+
+    <div class="dashboard-wrapper">
+
+        <!-- ============ SIDEBAR (Resume is active here) ============ -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">CampusHire</div>
+
+            <nav class="sidebar-nav">
+                <a href="student-dashboard.html" class="sidebar-link">
+                    <span class="icon">🏠</span> Dashboard
+                </a>
+                <a href="jobs.html" class="sidebar-link">
+                    <span class="icon">💼</span> Job Listings
+                </a>
+                <a href="profile.html" class="sidebar-link">
+                    <span class="icon">👤</span> My Profile
+                </a>
+                <a href="resume.html" class="sidebar-link active">
+                    <span class="icon">📄</span> Resume
+                </a>
+                <a href="chatbot.html" class="sidebar-link">
+                    <span class="icon">🤖</span> AI Assistant
+                </a>
+            </nav>
+
+            <a href="index.html" class="sidebar-link logout-link">
+                <span class="icon">🚪</span> Logout
+            </a>
+        </aside>
+
+        <!-- ============ MAIN CONTENT ============ -->
+        <main class="main-content">
+
+            <div class="content-header">
+                <h1>My Resume</h1>
+                <p class="subtitle">Upload and manage the resume recruiters will see.</p>
+            </div>
+
+            <!-- ============ CURRENT RESUME PREVIEW CARD ============ -->
+            <!-- 
+                Shows the "currently uploaded" file. Hardcoded for now — 
+                later, resume.js will check if a file exists (via API) 
+                and either show this card or show an empty state instead.
+            -->
+            <section class="dashboard-card current-resume-card">
+                <h2>Current Resume</h2>
+
+                <div class="resume-file-card">
+                    <div class="file-icon">📄</div>
+                    <div class="file-info">
+                        <p class="file-name">Anushka Suraskar_Resume.pdf</p>
+                        <p class="file-meta">Uploaded on 12 Jul 2026 &bull; 248 KB</p>
+                    </div>
+                    <div class="file-actions">
+                        <button class="btn btn-outline btn-small">View</button>
+                        <button class="btn btn-danger btn-small">Delete</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ UPLOAD NEW RESUME CARD ============ -->
+            <section class="dashboard-card upload-card">
+                <h2>Upload New Resume</h2>
+
+                <!-- 
+                    This form isn't functional yet — real file upload 
+                    requires backend storage (or at minimum JS FileReader 
+                    handling), which we'll wire up once the C++ backend exists.
+                -->
+                <form id="resumeUploadForm">
+                    <label for="resumeFile" class="upload-dropzone">
+                        <div class="upload-icon">⬆️</div>
+                        <p class="upload-text">
+                            <strong>Click to upload</strong> or drag and drop
+                        </p>
+                        <p class="upload-hint">PDF only, max 2MB</p>
+                        <input 
+                            type="file" 
+                            id="resumeFile" 
+                            name="resumeFile" 
+                            accept=".pdf" 
+                            hidden
+                        >
+                    </label>
+
+                    <button type="submit" class="btn btn-primary auth-btn save-btn">
+                        Upload Resume
+                    </button>
+                </form>
+            </section>
+
+            <!-- ============ RESUME TIPS CARD ============ -->
+            <section class="dashboard-card resume-tips-card">
+                <h2>💡 Resume Tips</h2>
+                <ul class="tips-list">
+                    <li>Keep your resume to a single page for campus placements.</li>
+                    <li>List projects with measurable impact (e.g., "reduced load time by 30%").</li>
+                    <li>Highlight skills that match your target job roles.</li>
+                    <li>Avoid spelling errors — have a friend proofread it.</li>
+                    <li>Use the AI Assistant for personalized resume suggestions.</li>
+                </ul>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="js/resume.js"></script>
+</body>
+</html>

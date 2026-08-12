@@ -1,0 +1,272 @@
+/* ==========================================================
+   CHAT PAGE LAYOUT OVERRIDE
+   Overrides some default .main-content behavior so the chat 
+   fills the screen height properly and only the message area 
+   scrolls (not the whole page).
+   ========================================================== */
+.chat-page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 0;   /* we control spacing manually inside chat sections instead */
+}
+
+/* ==========================================================
+   CHAT HEADER
+   ========================================================== */
+.chat-header {
+    background-color: white;
+    padding: 20px 35px;
+    border-bottom: 1px solid #eee;
+    flex-shrink: 0;   /* keeps header from shrinking when messages overflow */
+}
+
+.chat-header-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.bot-avatar {
+    width: 46px;
+    height: 46px;
+    background-color: #eaf0fb;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.chat-header-info h2 {
+    font-size: 18px;
+    color: #1a1a2e;
+    margin-bottom: 2px;
+}
+
+.chat-subtitle {
+    font-size: 13px;
+    color: #888;
+}
+
+/* ==========================================================
+   CHAT WINDOW (scrollable message area)
+   ========================================================== */
+.chat-window {
+    flex-grow: 1;              /* fills all space between header and input bar */
+    overflow-y: auto;           /* THIS is what makes only messages scroll */
+    padding: 25px 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* ==========================================================
+   SUGGESTED QUESTION CHIPS
+   ========================================================== */
+.suggested-questions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.suggestion-chip {
+    background-color: white;
+    border: 1px solid #d8dee9;
+    color: #0f3460;
+    padding: 10px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.suggestion-chip:hover {
+    background-color: #eaf0fb;
+    border-color: #0f3460;
+}
+
+/* ==========================================================
+   MESSAGE ROWS
+   Each message is a flex row. Bot messages align left (default 
+   row direction), user messages align right (row-reverse... 
+   but we handle that more simply with justify-content below).
+   ========================================================== */
+.message {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    max-width: 75%;   /* prevents bubbles from stretching across the whole screen */
+}
+
+.bot-message {
+    align-self: flex-start;   /* bot messages stick to the left side */
+}
+
+.user-message {
+    align-self: flex-end;     /* user messages stick to the right side */
+    justify-content: flex-end;
+}
+
+.bot-avatar-small {
+    width: 32px;
+    height: 32px;
+    background-color: #eaf0fb;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    flex-shrink: 0;
+}
+
+/* ==========================================================
+   MESSAGE BUBBLES (plain text messages)
+   ========================================================== */
+.message-bubble {
+    padding: 14px 18px;
+    border-radius: 16px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.bot-message .message-bubble {
+    background-color: white;
+    color: #333;
+    border-bottom-left-radius: 4px;   /* small "tail" corner, chat-app style */
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.user-message .message-bubble {
+    background-color: #0f3460;
+    color: white;
+    border-bottom-right-radius: 4px;  /* tail corner on the opposite side */
+}
+
+/* Special muted style for off-topic refusal messages */
+.refusal-bubble {
+    background-color: #fff4e0 !important;
+    color: #8a6416 !important;
+    font-style: italic;
+}
+
+/* ==========================================================
+   STRUCTURED RESPONSE CARD
+   Used instead of a plain bubble when the bot gives a 
+   data-rich answer (companies, skills, projects, salary).
+   ========================================================== */
+.structured-response {
+    background-color: white;
+    border-radius: 16px;
+    border-bottom-left-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    padding: 22px 24px;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.response-section h4 {
+    font-size: 14px;
+    color: #0f3460;
+    margin-bottom: 10px;
+}
+
+.tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.response-tag {
+    background-color: #eaf0fb;
+    color: #0f3460;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12.5px;
+    font-weight: 600;
+}
+
+/* Skills get a slightly different tint to visually separate them from companies */
+.response-tag.skill {
+    background-color: #e9f7ef;
+    color: #1e8e3e;
+}
+
+.response-list {
+    list-style-position: inside;
+    font-size: 13.5px;
+    color: #444;
+    line-height: 1.8;
+}
+
+/* Salary section gets a highlighted background to stand out as the "headline number" */
+.salary-highlight {
+    background-color: #fdf1f3;
+    padding: 14px 16px;
+    border-radius: 10px;
+}
+
+.salary-value {
+    font-size: 22px;
+    font-weight: 700;
+    color: #e94560;
+}
+
+/* ==========================================================
+   CHAT INPUT BAR (fixed at bottom)
+   ========================================================== */
+.chat-input-bar {
+    display: flex;
+    gap: 12px;
+    padding: 18px 35px;
+    background-color: white;
+    border-top: 1px solid #eee;
+    flex-shrink: 0;   /* keeps input bar from shrinking/scrolling away */
+}
+
+.chat-input-bar input {
+    flex-grow: 1;
+    padding: 14px 18px;
+    border: 1px solid #ddd;
+    border-radius: 25px;   /* fully rounded, like a real chat app input */
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.chat-input-bar input:focus {
+    border-color: #0f3460;
+}
+
+.send-btn {
+    border-radius: 25px;
+    padding: 0 28px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* ==========================================================
+   RESPONSIVE: shrink padding on small screens
+   ========================================================== */
+@media (max-width: 700px) {
+    .chat-header,
+    .chat-window,
+    .chat-input-bar {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .message {
+        max-width: 90%;
+    }
+
+    .structured-response {
+        max-width: 100%;
+    }
+}

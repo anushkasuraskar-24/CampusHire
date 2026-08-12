@@ -1,0 +1,301 @@
+/* ==========================================================
+   GLOBAL RESET
+   Browsers apply their own default margins/padding to elements
+   like <body>, <h1>, <p>. We reset those to 0 first, so our own
+   spacing decisions are consistent across all browsers.
+   ========================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* padding/border won't add extra width to elements */
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif; /* clean, professional font */
+    background-color: #f4f6f9;  /* light gray background, easier on eyes than pure white */
+    color: #1a1a2e;             /* dark navy text, softer than pure black */
+    line-height: 1.6;
+}
+
+/* ==========================================================
+   NAVBAR
+   ========================================================== */
+.navbar {
+    display: flex;                  /* places logo and nav-links side by side */
+    justify-content: space-between; /* pushes them to opposite ends */
+    align-items: center;
+    padding: 20px 60px;
+    background-color: #0f3460;      /* deep navy blue — brand color */
+    color: white;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;   /* removes the default underline */
+    margin-left: 30px;
+    font-weight: 500;
+    transition: color 0.2s;  /* smooth color change on hover */
+}
+
+.nav-links a:hover {
+    color: #e94560; /* accent color on hover, gives interactive feel */
+}
+
+/* ==========================================================
+   HERO SECTION
+   ========================================================== */
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #0f3460, #16213e); /* subtle gradient banner */
+    color: white;
+}
+
+.hero h1 {
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto 30px auto; /* centers the paragraph block */
+    color: #d1d5db;
+}
+
+/* ==========================================================
+   BUTTONS
+   We define reusable button classes so any page can use
+   class="btn btn-primary" etc. without rewriting styles.
+   ========================================================== */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    margin: 0 8px;
+    transition: transform 0.15s, box-shadow 0.15s; /* slight lift effect on hover */
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary {
+    background-color: #e94560; /* accent red-pink — draws attention */
+    color: white;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: #0f3460;
+    border: 2px solid #0f3460;
+    font-size: 14px;
+    padding: 10px 20px;
+}
+
+.btn-outline:hover {
+    background-color: #0f3460;
+    color: white;
+}
+
+/* ==========================================================
+   ROLE CARDS SECTION
+   ========================================================== */
+.roles-section {
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.roles-section h2 {
+    font-size: 28px;
+    margin-bottom: 40px;
+    color: #0f3460;
+}
+
+.roles-grid {
+    display: flex;              /* places the 3 cards side by side */
+    justify-content: center;
+    flex-wrap: wrap;            /* cards drop to next line on small screens */
+    gap: 30px;                  /* spacing between cards */
+}
+
+.role-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px 25px;
+    width: 280px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* soft shadow = card effect */
+    transition: transform 0.2s;
+}
+
+.role-card:hover {
+    transform: translateY(-5px); /* card lifts slightly on hover, feels interactive */
+}
+
+.role-card h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.role-card p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* ==========================================================
+   FOOTER
+   ========================================================== */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #0f3460;
+    color: #d1d5db;
+    font-size: 13px;
+}
+
+/* ==========================================================
+   RESPONSIVE DESIGN
+   On small screens (phones), stack the navbar links vertically
+   and shrink the hero text so nothing overflows.
+   ========================================================== */
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+}
+/* ==========================================================
+   AUTH PAGES (Login & Register)
+   These styles apply to any page using .auth-section / .auth-card,
+   so both login.html and register.html will share this look.
+   ========================================================== */
+
+.auth-section {
+    display: flex;
+    justify-content: center;   /* centers the card horizontally */
+    align-items: center;       /* centers the card vertically */
+    min-height: 80vh;          /* takes up most of the screen height */
+    padding: 40px 20px;
+    background-color: #f4f6f9;
+}
+
+.auth-card {
+    background-color: white;
+    padding: 40px 35px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* soft card shadow */
+    width: 100%;
+    max-width: 400px;   /* keeps the form from stretching too wide on large screens */
+    text-align: center;
+}
+
+.auth-card h2 {
+    color: #0f3460;
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.auth-subtitle {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+/* 
+   Form elements: we target label, input, select generically here
+   so we don't have to repeat these rules for every field manually.
+*/
+.auth-card form {
+    display: flex;
+    flex-direction: column;   /* stacks fields vertically instead of side-by-side */
+    text-align: left;
+}
+
+.auth-card label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 6px;
+    margin-top: 14px;
+}
+
+.auth-card input,
+.auth-card select {
+    padding: 12px 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;                      /* removes default browser focus outline */
+    transition: border-color 0.2s;
+}
+
+/* Highlight the field border when the user clicks into it */
+.auth-card input:focus,
+.auth-card select:focus {
+    border-color: #0f3460;
+}
+
+.auth-btn {
+    margin-top: 25px;
+    width: 100%;             /* button stretches to fill the card width */
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.error-message {
+    color: #e94560;
+    font-size: 13px;
+    margin-top: 10px;
+    min-height: 16px;   /* reserves space so layout doesn't jump when an error appears */
+}
+
+.auth-footer-text {
+    margin-top: 20px;
+    font-size: 13px;
+    color: #555;
+    text-align: center;
+}
+
+.auth-footer-text a {
+    color: #0f3460;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.auth-footer-text a:hover {
+    text-decoration: underline;
+}
+.btn-danger {
+    background-color: transparent;
+    color: #c0392b;
+    border: 2px solid #c0392b;
+    font-size: 13px;
+}
+
+.btn-danger:hover {
+    background-color: #c0392b;
+    color: white;
+}

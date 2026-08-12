@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard | CampusHire</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+    <div class="dashboard-wrapper">
+
+        <!-- ============ SIDEBAR ============ -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">CampusHire</div>
+            <nav class="sidebar-nav">
+                <a href="student-dashboard.html" class="sidebar-link active">
+                    <span class="icon">🏠</span> Dashboard
+                </a>
+                <a href="jobs.html" class="sidebar-link">
+                    <span class="icon">💼</span> Job Listings
+                </a>
+                <a href="profile.html" class="sidebar-link">
+                    <span class="icon">👤</span> My Profile
+                </a>
+                <a href="resume.html" class="sidebar-link">
+                    <span class="icon">📄</span> Resume
+                </a>
+                <a href="chatbot.html" class="sidebar-link">
+                    <span class="icon">🤖</span> AI Assistant
+                </a>
+            </nav>
+            <a href="#" id="logoutBtn" class="sidebar-link logout-link">
+                <span class="icon">🚪</span> Logout
+            </a>
+        </aside>
+
+        <!-- ============ MAIN CONTENT AREA ============ -->
+        <main class="main-content">
+
+            <div class="content-header">
+                <div>
+                    <h1>Welcome back, <span id="studentName">Student</span> 👋</h1>
+                    <p class="subtitle">Here's what's happening with your placement journey.</p>
+                </div>
+            </div>
+
+            <!-- ============ PROFILE SUMMARY CARD ============ -->
+            <section class="dashboard-card profile-summary">
+                <h2>Profile Summary</h2>
+                <div class="profile-grid">
+                    <div>
+                        <span class="label">Name</span>
+                        <p id="studentNameDetail">-</p>
+                    </div>
+                    <div>
+                        <span class="label">Branch</span>
+                        <p id="studentBranch">-</p>
+                    </div>
+                    <div>
+                        <span class="label">CGPA</span>
+                        <p id="studentCgpa">-</p>
+                    </div>
+                    <div>
+                        <span class="label">Resume Status</span>
+                        <p class="status-badge status-uploaded" id="resumeStatus">Not Uploaded</p>
+                    </div>
+                </div>
+
+                <div class="skills-list" id="studentSkills">
+                    <!-- Skill tags injected by JS -->
+                </div>
+            </section>
+
+            <!-- ============ TWO-COLUMN ROW: Jobs + AI Assistant ============ -->
+            <div class="dashboard-row">
+
+                <!-- ============ JOB LISTINGS PREVIEW ============ -->
+                <section class="dashboard-card jobs-preview">
+                    <div class="card-header-row">
+                        <h2>Recommended Job Openings</h2>
+                        <a href="jobs.html" class="view-all-link">View All →</a>
+                    </div>
+
+                    <div id="jobsPreview">
+                        <!-- Job items injected by JS -->
+                    </div>
+                </section>
+
+                <!-- ============ AI ASSISTANT PREVIEW CARD ============ -->
+                <section class="dashboard-card ai-assistant-card">
+                    <h2>🤖 AI Career Assistant</h2>
+                    <p class="ai-desc">
+                        Ask about companies hiring for your skills, salary 
+                        expectations, interview prep, or a personalized 
+                        roadmap — available 24/7.
+                    </p>
+                    <div class="ai-preview-box">
+                        <p class="ai-sample-msg">
+                            "I know C++, SQL and HTML. Which companies should I apply to?"
+                        </p>
+                    </div>
+                    <a href="chatbot.html" class="btn btn-primary auth-btn">Ask AI Assistant</a>
+                </section>
+
+            </div>
+
+            <!-- ============ MY APPLICATIONS TABLE ============ -->
+            <section class="dashboard-card applications-section">
+                <h2>My Applications</h2>
+
+                <table class="applications-table">
+                    <thead>
+                        <tr>
+                            <th>Role</th>
+                            <th>Company</th>
+                            <th>Status</th>
+                            <th>Applied On</th>
+                        </tr>
+                    </thead>
+                    <tbody id="applicationsTableBody">
+                        <!-- Application rows injected by JS -->
+                    </tbody>
+                </table>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/student-dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | CampusHire</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+    <div class="dashboard-wrapper">
+
+        <aside class="sidebar">
+            <div class="sidebar-logo">CampusHire</div>
+            <nav class="sidebar-nav">
+                <a href="student-dashboard.html" class="sidebar-link">
+                    <span class="icon">🏠</span> Dashboard
+                </a>
+                <a href="jobs.html" class="sidebar-link">
+                    <span class="icon">💼</span> Job Listings
+                </a>
+                <a href="profile.html" class="sidebar-link active">
+                    <span class="icon">👤</span> My Profile
+                </a>
+                <a href="resume.html" class="sidebar-link">
+                    <span class="icon">📄</span> Resume
+                </a>
+                <a href="chatbot.html" class="sidebar-link">
+                    <span class="icon">🤖</span> AI Assistant
+                </a>
+            </nav>
+            <a href="#" id="logoutBtn" class="sidebar-link logout-link">
+                <span class="icon">🚪</span> Logout
+            </a>
+        </aside>
+
+        <main class="main-content">
+
+            <div class="content-header">
+                <div>
+                    <h1>My Profile</h1>
+                    <p class="subtitle">Keep your details up to date for better job matches.</p>
+                </div>
+            </div>
+
+            <section class="dashboard-card">
+                <div class="avatar-circle" id="avatarInitial">A</div>
+
+                <p id="profileMessage" style="font-weight: 600; margin: 10px 0;"></p>
+
+                <form id="profileForm" class="form-grid">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" id="fullName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="email" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label>Branch</label>
+                        <select id="branch" required>
+                            <option value="">Select your branch</option>
+                            <option value="CSE">CSE</option>
+                            <option value="ECE">ECE</option>
+                            <option value="E&TC">E&TC</option>
+                            <option value="EEE">EEE</option>
+                            <option value="ME">ME</option>
+                            <option value="IT">IT</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>CGPA</label>
+                        <input type="number" id="cgpa" step="0.01" min="0" max="10" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Graduation Year</label>
+                        <input type="number" id="gradYear" min="2024" max="2030" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="tel" id="phone">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Skills (comma-separated)</label>
+                        <input type="text" id="skills" placeholder="C++, SQL, Python">
+                    </div>
+                    <div class="form-group full-width">
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </div>
+                </form>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>

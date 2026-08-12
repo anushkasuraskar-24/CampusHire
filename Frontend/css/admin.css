@@ -1,0 +1,43 @@
+/* ==========================================================
+   TABLE TOOLBAR
+   The row above each management table: heading on the left, 
+   action element (search box or button) on the right.
+   ========================================================== */
+.table-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.table-toolbar h2 {
+    margin-bottom: 0;   /* overrides default h2 margin since toolbar handles spacing */
+}
+
+.toolbar-search {
+    max-width: 260px;
+}
+
+/* ==========================================================
+   ADMIN STATS ROW OVERRIDE
+   Admin has 4 stat cards instead of 3 (like recruiter), so we 
+   override the column count here rather than editing the 
+   shared .stats-row rule in recruiter.css.
+   ========================================================== */
+.admin-stats-row {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1000px) {
+    .admin-stats-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .admin-stats-row {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | CampusHire</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+    <div class="dashboard-wrapper">
+
+        <aside class="sidebar">
+            <div class="sidebar-logo">CampusHire</div>
+            <nav class="sidebar-nav">
+                <a href="admin-dashboard.html" class="sidebar-link active">
+                    <span class="icon">🏠</span> Dashboard
+                </a>
+            </nav>
+            <a href="#" id="logoutBtn" class="sidebar-link logout-link">
+                <span class="icon">🚪</span> Logout
+            </a>
+        </aside>
+
+        <main class="main-content">
+
+            <div class="content-header">
+                <div>
+                    <h1>Admin Dashboard</h1>
+                    <p class="subtitle">Platform-wide analytics and management.</p>
+                </div>
+            </div>
+
+            <!-- ============ STATS ROW ============ -->
+            <div class="admin-stats-row">
+                <div class="stat-card">
+                    <span class="stat-value" id="statStudents">0</span>
+                    <span class="stat-label">Total Students</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value" id="statRecruiters">0</span>
+                    <span class="stat-label">Total Recruiters</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value" id="statCompanies">0</span>
+                    <span class="stat-label">Companies</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value" id="statJobs">0</span>
+                    <span class="stat-label">Active Jobs</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value" id="statApplications">0</span>
+                    <span class="stat-label">Total Applications</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value" id="statSelected">0</span>
+                    <span class="stat-label">Students Placed</span>
+                </div>
+            </div>
+
+            <!-- ============ STUDENTS TABLE ============ -->
+            <section class="dashboard-card">
+                <div class="table-toolbar">
+                    <h2>All Students</h2>
+                    <input type="text" id="studentSearch" class="toolbar-search" placeholder="Search students...">
+                </div>
+                <table class="applications-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Branch</th>
+                            <th>CGPA</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentsTableBody"></tbody>
+                </table>
+            </section>
+
+            <!-- ============ COMPANIES TABLE ============ -->
+            <section class="dashboard-card">
+                <div class="table-toolbar">
+                    <h2>All Companies</h2>
+                </div>
+                <table class="applications-table">
+                    <thead>
+                        <tr>
+                            <th>Company</th>
+                            <th>Industry</th>
+                            <th>Jobs Posted</th>
+                        </tr>
+                    </thead>
+                    <tbody id="companiesTableBody"></tbody>
+                </table>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/admin-dashboard.js"></script>
+</body>
+</html>

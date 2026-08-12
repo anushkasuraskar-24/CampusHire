@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Character encoding and responsive viewport setup -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusHire | AI-Powered Placement Portal</title>
+
+    <!-- 
+        We link to our external CSS file here.
+        This file doesn't exist yet (we build it in the NEXT step),
+        so for now the browser will just ignore this line quietly
+        and show unstyled HTML. That's expected and fine.
+    -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ============ NAVIGATION BAR ============ -->
+    <!-- 
+        <header> is a semantic HTML5 tag — it tells the browser 
+        (and search engines, and screen readers) "this is the top 
+        section of the page." Using semantic tags instead of plain 
+        <div> everywhere is a professional habit.
+    -->
+    <header class="navbar">
+        <div class="logo">CampusHire</div>
+
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="login.html">Login</a>
+            <a href="register.html">Register</a>
+        </nav>
+    </header>
+
+    <!-- ============ HERO SECTION ============ -->
+    <!-- 
+        The "hero" section is the big banner area at the top of a 
+        landing page. This is where we make the first impression.
+    -->
+    <section class="hero">
+        <h1>Your AI-Powered Gateway to Campus Placements</h1>
+        <p>
+            One platform for Students, Recruiters, and Placement Admins — 
+            with an AI Career Assistant to guide you every step of the way.
+        </p>
+
+        <!-- 
+            These two buttons are the main "calls to action" (CTAs).
+            We link them to login.html and register.html, which we'll 
+            build in upcoming steps.
+        -->
+        <div class="hero-buttons">
+            <a href="login.html" class="btn btn-primary">Login</a>
+            <a href="register.html" class="btn btn-secondary">Register</a>
+        </div>
+    </section>
+
+    <!-- ============ ROLE SELECTION CARDS ============ -->
+    <!-- 
+        Since this portal has 3 different user types, we show 3 
+        cards here so users immediately understand "this platform 
+        is built for people like me."
+    -->
+    <section class="roles-section">
+        <h2>Built For Everyone in the Placement Process</h2>
+
+        <div class="roles-grid">
+
+            <!-- Student Card -->
+            <div class="role-card">
+                <h3>🎓 Students</h3>
+                <p>Track applications, upload your resume, and get AI-powered 
+                   career guidance tailored to your skills.</p>
+                <a href="login.html" class="btn btn-outline">Student Login</a>
+            </div>
+
+            <!-- Recruiter Card -->
+            <div class="role-card">
+                <h3>🏢 Recruiters</h3>
+                <p>Post job openings, review applicants, and manage your 
+                   hiring pipeline in one dashboard.</p>
+                <a href="login.html" class="btn btn-outline">Recruiter Login</a>
+            </div>
+
+            <!-- Admin Card -->
+            <div class="role-card">
+                <h3>🛠️ Placement Admins</h3>
+                <p>Oversee the entire placement drive — students, companies, 
+                   and real-time placement statistics.</p>
+                <a href="login.html" class="btn btn-outline">Admin Login</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <p>&copy; 2026 CampusHire. Built as an academic placement management project.</p>
+    </footer>
+
+</body>
+</html>

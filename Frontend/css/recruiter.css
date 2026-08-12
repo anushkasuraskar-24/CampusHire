@@ -1,0 +1,109 @@
+/* ==========================================================
+   STATS ROW (3 KPI cards side by side)
+   ========================================================== */
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.stat-card {
+    margin-bottom: 0;   /* overrides default .dashboard-card bottom margin since gap handles spacing here */
+}
+
+.stat-label {
+    font-size: 13px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.stat-value {
+    font-size: 32px;
+    font-weight: 700;
+    color: #0f3460;
+}
+
+/* ==========================================================
+   JOB POSTINGS LIST
+   ========================================================== */
+.posting-item {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 18px;
+}
+
+.posting-item:last-child {
+    margin-bottom: 0;
+}
+
+.posting-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.posting-summary h3 {
+    font-size: 16px;
+    color: #1a1a2e;
+    margin-bottom: 4px;
+}
+
+.posting-meta {
+    font-size: 13px;
+    color: #888;
+}
+
+.posting-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.applicant-count-badge {
+    background-color: #eaf0fb;
+    color: #0f3460;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12.5px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* Expanded applicant table area within a posting */
+.applicant-list {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #f0f0f0;
+    overflow-x: auto;   /* allows table to scroll horizontally on small screens instead of breaking layout */
+}
+
+/* Disabled buttons (Shortlisted/Rejected states) should look non-interactive */
+.btn-outline:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-outline:disabled:hover {
+    background-color: transparent;
+    color: #0f3460;
+}
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+@media (max-width: 800px) {
+    .stats-row {
+        grid-template-columns: 1fr;
+    }
+
+    .posting-summary {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

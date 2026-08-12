@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | CampusHire</title>
+
+    <!-- Same global stylesheet as index.html, so navbar/footer look consistent -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ============ NAVIGATION BAR (same as index.html) ============ -->
+    <header class="navbar">
+        <div class="logo">CampusHire</div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="login.html">Login</a>
+            <a href="register.html">Register</a>
+        </nav>
+    </header>
+
+    <!-- ============ LOGIN FORM SECTION ============ -->
+    <!-- 
+        We wrap the form in a <section> with a class "auth-section"
+        (we'll style this in style.css in a later step, once we add
+        more shared "form page" styles).
+    -->
+    <section class="auth-section">
+        <div class="auth-card">
+            <h2>Login to CampusHire</h2>
+            <p class="auth-subtitle">Access your placement dashboard</p>
+
+            <!-- 
+                <form> tag groups our inputs together.
+                We haven't connected this to the backend yet, so for now
+                clicking "Login" won't do anything real — it's just the
+                visual structure. We'll wire this up in login.js later,
+                once the backend exists to actually check credentials.
+            -->
+            <form id="loginForm">
+
+                <!-- Role Selector: lets one login page serve all 3 user types -->
+                <label for="role">Login as</label>
+                <select id="role" name="role" required>
+                    <option value="" disabled selected>Select your role</option>
+                    <option value="student">Student</option>
+                    <option value="recruiter">Recruiter</option>
+                    <option value="admin">Admin</option>
+                </select>
+
+                <!-- Email field -->
+                <label for="email">Email</label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    placeholder="you@example.com" 
+                    required
+                >
+
+                <!-- Password field -->
+                <label for="password">Password</label>
+                <input 
+                    type="password" 
+                    id="password" 
+                    name="password" 
+                    placeholder="Enter your password" 
+                    required
+                >
+
+                <!-- 
+                    type="submit" triggers the form's submit event.
+                    We'll catch that event in login.js later to send
+                    the data to our backend instead of reloading the page.
+                -->
+                <button type="submit" class="btn btn-primary auth-btn">Login</button>
+
+                <!-- 
+                    A placeholder for showing error messages 
+                    (e.g. "Invalid credentials") once backend is connected.
+                    Empty for now — login.js will fill this in later.
+                -->
+                <p id="loginError" class="error-message"></p>
+
+            </form>
+
+            <p class="auth-footer-text">
+                Don't have an account? <a href="register.html">Register here</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER (same as index.html) ============ -->
+    <footer class="footer">
+        <p>&copy; 2026 CampusHire. Built as an academic placement management project.</p>
+    </footer>
+
+    <!-- 
+        We link login.js here, at the end of body (best practice — 
+        ensures HTML is fully loaded before JS tries to access elements).
+        This file doesn't exist yet, so the browser will just ignore it 
+        for now, same as we did with style.css earlier.
+    -->
+    <script src="js/api.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>
